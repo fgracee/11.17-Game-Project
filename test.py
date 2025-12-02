@@ -284,22 +284,45 @@ def check_keep_item(item_name, player):
 
 def keep_item(item_name, player):
     """
-    Add the specified item to the player's inventory.
-    In doing so, remove the item from the current room's dictionary by removing it from the list of items in that room.
-    Then, add the item to the player's inventory list and change it's location to "player".
-    An object with it's location value as "player" should always have its title value in the player's inventory list and vice versa.
-    For an object to be added 
-    If the items "keep" value is "False", print "You cannot keep that item" and if the item is not in the current room print "There is no item by that name here".
-    Otherwise, print "You have added [item_name] to your inventory".
+    Use check_keep_item to determine if the specified item can be added to the player's inventory.
+    If it can, add it to the inventory list in the player dictionary and change the item's location to "inventory", also remove it from the current room's item list.
+    If it cannot, print "You cannot keep that item."
 
     Args:
-    item_name (str): the name of the item to keep
-    player (dict): the player object containing inventory and location information
+    item_name (str): the name of an item to keep
+    player (dict): the player dictionary
 
     Returns:
-    updated_inventory (list): the updated inventory list of the player
-    print appropriate messages based on the action taken.
+    An updated player inventory if the item is kept, also add "[item_name] added to inventory, or print "You cannot keep that item." if it cannot be kept
     """
+    if check_keep_item(item_name, player):
+        player["inventory"].append(item_name)
+        for itm in item:
+            if itm["title"] == item_name:
+                itm["location"] = "inventory"
+        for room in world:
+            if room["title"] == player["location"]:
+                if item_name in room["items"]:
+                    room["items"].remove(item_name)
+        print(f"{item_name} added to inventory.")
+        return player["inventory"]
+    else:
+        print("You cannot keep that item.")
+
+def look_closer(item_name):
+    """ 
+    Use the input for item_name to find the matching item in the item dictionary and return and print the value for look closer for that item.
+    Args:
+    item_name (str): the name of an item to look closer at
+
+    Returns:
+    look_closer (str): the look closer description of the item, print it
+    """
+    for itm in item:
+        if itm["title"] == item_name:
+            look_closer_desc = itm["look closer"]
+            print(look_closer_desc)
+            return look_closer_desc
 
 def main():
     welcome_screen()
@@ -313,9 +336,9 @@ def main():
          # Prompt the player with choices 1. interact, 2. move, 3 open inventory and use selected choice in player_choice
         user_input = input("What would you like to move, interact with an item, or view your inventory?\n")
         player_choice(user_input)
+        # If player selects to interact with an item, after the interaction prompt ask if they want to look closer or keep the item
+     
         
-        if user_input == 'quit':
-            break
 
 # add start or load prompt to main??
 # offer rules or summary? (welcome screen)
