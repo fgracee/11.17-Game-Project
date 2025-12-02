@@ -1,0 +1,110 @@
+[
+  {
+    "title": "woods",
+    "description": "a dark forest with a slim trail from heavy foot traffic. Infront of you lays an old, single floor cabin with grubby windows and outdated siding.",
+    "items":"crowbar",
+    "doors": ["living room", "backyard", "red pickup truck", "white SUV", "green sedan"],
+    "type": "room",
+    "unlocked": "True"
+  },
+  {
+    "title": "backyard",
+    "description": "a small patch of flat land covered in short grass and red flowers.",
+    "items": " ",
+    "doors": ["woods, cellar"],
+    "type": "room",
+    "unlocked": "True"
+  },
+  {
+    "title": "living room",
+    "description": "a welcoming room crowded with places to sit and tacky decorations.",
+    "items": ["guest book", "couch", "fireplace", "family pictures"],
+    "doors": [
+      "large bedroom",
+      "small bedroom",
+      "kitchen",
+      "master bedroom",
+      "woods"
+    ],
+    "type": "room",
+    "unlcoked": "True"
+  },
+    {
+    "title": "large bedroom",
+    "description": "a spacey bedroom with two full-sized beds and two closets. Neither of them are full",
+    "items": ["suit case", "keychain", "groceries", "calendar"],
+    "doors": [
+      "bathroom",
+      "living room"
+    ],
+    "type": "room",
+    "unlocked": "True"
+  },
+     {
+    "title": "bathroom",
+    "description": "a full bathroom with yellow walls and no windows",
+    "items": ["sink", "mirror", "magazine"],
+    "doors": [
+      "large bedroom",
+      "small bedroom"
+    ],
+    "type": "room",
+    "unlocked": "True"
+  },    
+  {
+    "title": "small bedroom",
+    "description": "a cramped bedroom thats been torn apart.",
+    "items": ["rug", "watch", "birthday photo", "shoebox"],
+    "doors": ["living room", "large bathroom", "bathroom"],
+    "type": "room",
+    "unlocked": "True"
+  },
+    {
+    "title": "kitchen",
+    "description": "a kitchen and dining room with limited space to cook or eat",
+    "items": ["knife block", "vegetables", "pot", "trashcan"],
+    "doors": ["living room"],
+    "type": "room"
+  },
+    {
+    "title": "cellar",
+    "description": "a dank room with poor lighting full of forgotten junk.",
+    "items": ["boxes",  "footprints", "tire iron"],
+    "doors": "backyard",
+    "type": "room",
+    "unlocked": ["False", "crowbar"]
+  },
+   {
+    "title": "white suv",
+    "description": "a pristine Subaru a bumper sticker for Brigham Young University.",
+    "items": ["cupholder", "trunk"],
+    "doors": ["woods", "green sedan", "red pickup truck"],
+    "type": "room",
+    "unlocked": ["False", "keychain"]
+  },
+   {
+    "title": "red pickup truck",
+    "description": "a rust-colored Ford tuck that belongs to you",
+    "items": "crowbar",
+    "doors": ["woods", "green sedan", "white suv"],
+    "type": "room",
+    "unlocked": "True"
+  },
+{
+  "title": "master bedroom",
+  "description": "a large room with dark walls and an unmade bed",
+  "items": ["boots", "safe", "blanket", "wallet", "journal"],
+  "doors": "living room",
+  "type": "room",
+  "unlocked": "True"
+},
+{
+"title": "green sedan",
+"description": "an old Honda Civic with a dented bumper",
+"items": ["front seat", "back seat"],
+"doors": ["woods", "white SUV", "red pickup truck"],
+"type": "room",
+"unlocked": ["False", "car keys"]
+}
+
+]
